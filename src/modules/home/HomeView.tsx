@@ -1,16 +1,30 @@
 "use client"
+import { auth } from "@/lib/auth"
 import { authClient } from "@/lib/auth-client"
 import {  signOut } from "better-auth/api"
+
 import { redirect, useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
 
 
 export const HomeView=()=>{
-  const router=useRouter();
+   const [login,setLogin]=useState(false);
+   const router=useRouter();
+  useEffect(() => {
+    // fetch session on client
+    const checkSession = async () => {
+      const session = await authClient.getSession()
+      if (session) setLogin(true)
+    }
+    checkSession()
+  }, [])
+   
  async function signOut() {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push("/sign-in"); // redirect to login page
+          router.push("/sign-in");
+          setLogin(false) // redirect to login page
         },
       },
     });
@@ -22,9 +36,9 @@ export const HomeView=()=>{
       <button onClick={()=>{
         redirect("/sign-up")
       }} className="bg-red-200"> get started </button>
-      <button onClick={signOut}>
+      {login && <button onClick={signOut}>
 sign out
-      </button>
+      </button> }
      
     </div>
     )
