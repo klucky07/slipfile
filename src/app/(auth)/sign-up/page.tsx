@@ -11,7 +11,7 @@ const Page= async()=>{
 headers:await headers(),
   })
   if(!!session){
-   redirect("/")
+   redirect("/home")
   }
   return <SignUpView/>
 }
