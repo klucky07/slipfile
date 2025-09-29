@@ -44,7 +44,7 @@ export const HomeView=()=>{
         
           <div className="flex justify-center gap-8 mb-12">
             <div className="flex flex-col items-center gap-2">
-              <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-slate-600 rounded-full flex items-center justify-center">
                 <Upload className="w-8 h-8 text-white" />
               </div>
               <span className="text-sm text-gray-300">Upload</span>
@@ -72,7 +72,7 @@ export const HomeView=()=>{
                 Get Started
                 <Zap className="w-5 h-5 group-hover:animate-bounce" />
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-black to-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+              <div className="absolute inset-0  rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
             </button>
             
             {/* {login && (
@@ -102,12 +102,12 @@ export const HomeView=()=>{
         </div>
 
       
-        <button 
+        {/* <button 
           onClick={() => setLogin(!login)}
           className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm rounded-lg hover:bg-white/20 transition-colors"
         >
           {login ? 'Demo: Logout' : 'Demo: Login'}
-        </button>
+        </button> */}
       </div>
 
 {/*       

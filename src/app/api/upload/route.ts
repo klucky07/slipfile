@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    // 🔥 Broadcast event to clients
+
    const channel = supabaseAdmin.channel("file-transfers");
 await channel.send({
   type: "broadcast",

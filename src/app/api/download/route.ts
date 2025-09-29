@@ -8,11 +8,17 @@ export async function POST(req: Request) {
 
   const { filePath } = await req.json();
 
-  const { data, error } = await supabase.storage
-    .from("user-files")
-    .createSignedUrl(filePath, 60); // URL valid for 60s
+  try {
+   
+    const { data, error } = await supabase.storage
+      .from("user-files")
+      .createSignedUrl(filePath, 1800); // URL valid for 30 minutes
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+    if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-  return NextResponse.json({ url: data.signedUrl });
+    return NextResponse.json({ url: data.signedUrl });
+  } catch (err) {
+    console.error("Download error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
 }

@@ -51,11 +51,10 @@ export const SignUpView=()=>{
         
        
 
-        {/* Alternative horizontal layout */}
         <div className="mt-12">
          
           <div className="flex flex-col gap-3">
-            {/* Google Button - Full Width */}
+        
             <button 
               onClick={() => onSocial("google")}
               className="group relative flex items-center justify-center gap-3 p-4 bg-white hover:bg-gray-50 text-gray-800 font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
@@ -65,7 +64,6 @@ export const SignUpView=()=>{
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
-            {/* GitHub Button - Full Width */}
             <button 
               onClick={() => onSocial("github")}
               className="group relative flex items-center justify-center gap-3 p-4 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
